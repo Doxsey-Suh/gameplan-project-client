@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>gameplan</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+      <h1 id="banner">gameplan</h1>
+      <p id="message"></p>
+
+<!-- AUTHORIZATION STUFF ON THE LANDING PAGE START-->
+      <section id="authorization">
+        <!-- SIGN IN -->
+        <form id="sign-in-form">
+          <legend id="sign-in">sign in</legend>
+          <!-- email box -->
+          <input id="sign-in-email" type="text" name="credentials[email]" placeholder="email"></br>
+          <!-- password box -->
+          <input id="sign-in-password" type="password" name="credentials[password]" placeholder="password"></br>
+          <!-- sign in button -->
+          <input type="submit" value="sign in">
+        </form>
+        
+        
+        <!-- SIGN UP -->
+        <form id="sign-up-form">
+          <legend id="sign-up">sign up</legend>
+          <!-- email box -->
+          <input id="sign-up-email" type="text" name="credentials[email]" placeholder="email"></br>
+          <!-- password box -->
+          <input id="sign-up-password" type="password" name="credentials[password]" placeholder="password"></br>
+          <!-- confirm password box -->
+          <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="confirm password"></br>
+          <!-- sign up button -->
+          <input type="submit" value="sign up">
+        </form>
+        
+        <!-- show signin form -->
+        <div id="show-signin-form-button">
+          <p id="account-message">already have an account?</p>
+          <button type="submit">sign in</button>
+        </div>
+  
+        <!-- show signup form -->
+        <div id="show-signup-form-button">
+          <p id="account-message">don't have an account yet?</p>
+          <button type="submit">sign up</button>
+        </div>
+        
+      </section>
+      <!-- AUTHORIZATION STUFF ON THE LANDING PAGE END-->
+      
+      <!---GOAL BUTTONS START-->
+      <div id="buttons">
+        <button class="button" id="create-goal-button">create a goal</button>
+        <button class="button" id="show-goal-button">search goal by id</button>
+        <button class="button" id="update-goal-button">update a goal</button>
+        <button class="button" id="delete-goal-button">delete a goal</button>
+        <button class="button" id="index-goals-button">show all goals</button>
+        <button class="button" id="hide-goals-button">hide goal(s)</button>
+        <!---GOAL BUTTONS END-->
+
+        <!---STEP BUTTONS START-->
+                  <div id="buttons">
+                  <button class="button" id="create-step-button">create a step</button>
+                  <button class="button" id="show-step-button">search step by id</button>
+                  <button class="button" id="update-step-button">update a step</button>
+                  <button class="button" id="delete-step-button">delete a step</button>
+                  <button class="button" id="index-steps-button">show all steps</button>
+                  <button class="button" id="hide-steps-button">hide step(s)</button>
+                  </div>
+        <!--STEP BUTTONS END-->
+      
+      <!-- GOAL STUFF START-->
+      <div id="goal-stuff">
+        <!--NEW GOAL-->
+        <form id="create-goal-form">
+          <legend>new goal</legend>
+          <input type="text" name="goal[name]" placeholder="create goal">
+          <input type="text" name="goal[description]" placeholder="add goal description">
+          <button type="submit">create</button>
+        </form>
+        
+        
+        <!-- SHOW GOAL -->
+        <form id="show-goal-form">
+          <legend>search a goal</legend>
+          <input name="goal[id]" type="text" placeholder="search goal">
+          <button type="submit">show</button>
+        </form>
+        
+        <!-- UPDATE GOAL -->
+        <form id="update-goal-form">
+          <legend>update goal</legend>
+          <input required type="text" name="goal[id]" placeholder="goal id"></br>
+          <input type="text" name="goal[name]" placeholder="new name"></br>
+          <input type="text" name="goal[description]" placeholder="description">
+          <button type="submit">update</button>
+        </form>
+        
+        <!-- DELETE GOAL -->
+        <form id="delete-goal-form">
+          <legend>delete goal</legend>
+          <input type="text" name="goal[id]" placeholder="goal id here">
+          <button type="submit">delete</button>
+        </form>
+
+        <section id="goals">
+        </section>
+        <br />
+      </div>
+      <!-- GOAL STUFF END-->
+
+
+<!--STEP STUFF START-->
+        <div id="step-stuff">
+          <!--NEW STEP-->
+          <form id="create-step-form">
+            <legend>new step</legend>
+            <input type="text" name="step[name]" placeholder="create step">
+            <input type="text" name="step[description]" placeholder="add step description">
+            <button type="submit">create</button>
+          </form> 
+          <br>
+          <!-- SHOW STEP -->
+          <form id="show-step-form">
+            <legend>search a step</legend>
+            <input name="step[id]" type="text" placeholder="search step">
+            <button type="submit">show</button>
+          </form>
+          
+          <!-- UPDATE STEP -->
+          <form id="update-step-form">
+            <legend>update step</legend>
+            <input required type="text" name="step[id]" placeholder="step id"></br>
+            <input type="text" name="step[name]" placeholder="new step"></br>
+            <input type="text" name="step[description]" placeholder="description">
+            <button type="submit">update</button>
+          </form>
+          
+          <!-- DELETE STEP -->
+          <form id="delete-step-form">
+            <legend>delete step</legend>
+            <input type="text" name="step[id]" placeholder="step id here">
+            <button type="submit">delete</button>
+          </form>
+          
+          <section id="steps">
+          </section>
+          <br />
+        </div>
+          
+<br />
+
+<!-- SIGNED IN AUTH STUFF START-->
+          <!-- CHANGE PW -->
+          <div id="show-change-password-form-button">
+            <button type="submit">change password</button>
+          </div>
+
+          <form id="change-password-form">
+            <!-- old pw -->
+              <input type="password" name="passwords[old]" placeholder="old password"></br>
+            <!-- new pw -->
+              <input type="password" name="passwords[new]" placeholder="new password"></br>
+            <!-- submit button -->
+              <input type="submit" value="change password">
+              <!-- cancel button -->
+              <input id="cancel" type="button" value="cancel">
+          </form>
+
+          <!-- SIgn OUT -->
+          <form id="sign-out-form">
+              <input type="submit" value="sign out">
+          </form>
+<!-- SIGNED IN AUTH STUFF END-->
+    </body>
+  </html>
