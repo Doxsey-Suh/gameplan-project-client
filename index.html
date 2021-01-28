@@ -88,48 +88,49 @@
         <!--STEP BUTTONS END-->
       
       <!-- GOAL STUFF START-->
-      <div id="goal-stuff">
-        <!--NEW GOAL-->
-        <form id="create-goal-form">
-          <legend>new goal</legend>
-          <input type="text" name="goal[name]" placeholder="create goal">
-          <input type="text" name="goal[description]" placeholder="add goal description">
-          <button type="submit" class="btn btn-primary ">create</button>
-        </form>
-        
-        
-        <!-- SHOW GOAL -->
-        <form id="show-goal-form">
-          <legend>search a goal</legend>
-          <input name="goal[6005f267213fcbaf0bf19743]" type="text" placeholder="6005f267213fcbaf0bf19743">
-          <button type="submit" class= "btn btn-secondary">show</button>
-        </form>
-        
-        <!-- UPDATE GOAL -->
-        <form id="update-goal-form">
-          <legend>update goal</legend>
-          <input required type="text" name="goal[id]" placeholder="goal id"></br>
-          <input type="text" name="goal[name]" placeholder="new name"></br>
-          <input type="text" name="goal[description]" placeholder="description">
-          <button class= "btn btn-secondary" type="submit">update</button>
-        </form>
-        
-        <!-- DELETE GOAL -->
-        <form id="delete-goal-form">
-          <legend>delete goal</legend>
-          <input type="text" name="goal[id]" placeholder="goal id here">
-          <button class= "btn btn-secondary" type="submit">delete</button>
-        </form>
+      <div class='row' id="goals-comments">
+        <div class="col-md-5" id="goal-stuff">
+          <!--NEW GOAL-->
+          <form id="create-goal-form">
+            <legend>new goal</legend>
+            <input type="text" name="goal[name]" placeholder="create goal">
+            <input type="text" name="goal[description]" placeholder="add goal description">
+            <button type="submit" class="btn btn-primary ">create</button>
+          </form>
+          
+          
+          <!-- SHOW GOAL -->
+          <form id="show-goal-form">
+            <legend>search a goal</legend>
+            <input name="goal[6005f267213fcbaf0bf19743]" type="text" placeholder="6005f267213fcbaf0bf19743">
+            <button type="submit" class= "btn btn-secondary">show</button>
+          </form>
+          
+          <!-- UPDATE GOAL -->
+          <form id="update-goal-form">
+            <legend>update goal</legend>
+            <input required type="text" name="goal[id]" placeholder="goal id"></br>
+            <input type="text" name="goal[name]" placeholder="new name"></br>
+            <input type="text" name="goal[description]" placeholder="description">
+            <button class= "btn btn-secondary" type="submit">update</button>
+          </form>
+          
+          <!-- DELETE GOAL -->
+          <form id="delete-goal-form">
+            <legend>delete goal</legend>
+            <input type="text" name="goal[id]" placeholder="goal id here">
+            <button class= "btn btn-secondary" type="submit">delete</button>
+          </form>
 
-        <section id="goals">
-        </section>
-        <br />
-      </div>
-      <!-- GOAL STUFF END-->
+          <section class="list-group" id="goals">
+          </section>
+
+        </div>
+       <!-- GOAL STUFF END-->
 
 
-<!--STEP STUFF START-->
-        <div id="step-stuff">
+        <!--STEP STUFF START-->
+        <div class="col-md-7" id="step-stuff">
           <!--NEW STEP-->
           <form id="create-step-form">
             <legend>new step</legend>
@@ -160,10 +161,11 @@
             <button class= "btn btn-secondary" type="submit">delete</button>
           </form>
           
-          <section id="steps">
+          <section class="list-group" id="steps">
           </section>
-      
+
         </div>
+      </div>
 
 
 <!-- SIGNED IN AUTH STUFF START-->

@@ -32,9 +32,9 @@ const showGoalSuccess = function (response) {
   console.log(response.goal._id)
   
   //   const deleteGoal = function () {
-    //   console.log('delete button clicked')
-    // }
-    const goalShow = (`
+  //   console.log('delete button clicked')
+  // }
+  const goalShow = (`
     <section class="border">
     <h1> ${response.goal.name} </h1>
     <p> ${response.goal._id} </p>
@@ -44,48 +44,49 @@ const showGoalSuccess = function (response) {
     </section>
     `)
     
-    $('#goals').append(goalShow)
-  }
+  $('#goals').append(goalShow)
+}
   
-  const indexGoalsSuccess = function (response) {
-    console.log(response.goals.length)
-    $('#goals').show()
-    // $('#goals').html('')
-    if (response.goals.length === 0) {
-      $('#goals').text('goals list is empty')
-      $('#hide-goals-button').show()
-      $('#index-goals-button').hide()
-      // $('form').trigger('reset')
-    }
+const indexGoalsSuccess = function (response) {
+  console.log(response.goals.length)
+  $('#goals').show()
+  // $('#goals').html('')
+  if (response.goals.length === 0) {
+    $('#goals').text('goals list is empty')
+    $('#hide-goals-button').show()
+    $('#index-goals-button').hide()
+    // $('form').trigger('reset')
+  }
     
-    // <button id="test-button" type="submit"> hey </button> 
-    //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
-    response.goals.forEach(goals => {
+  // <button id="test-button" type="submit"> hey </button> 
+  //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
+  response.goals.forEach(goals => {
       
-      const goalList = (`
+    const goalList = (`
       
-      <section class="container border">
-      <h1 id="show-goal"> <a href="#"> ${goals.name} </a> </h1>
+      <section class="container border list-group-item list-group-item-action " data-toggle='list' role="tab"  >
+      <h1 id="show-goal"> <a href="#list-${goals.id}"> ${goals.name} </a> </h1>
       <p> description: ${goals.description} </p>
       <p> id: ${goals._id} </p>
       
       </section>
       `)
-      
-      // $('#goals').html('')
-      $('#goals').prepend(goalList)
-      $('#hide-goals-button').show()
-      $('#index-goals-button').hide()
-      $('form').trigger('reset')
-      
-      document.getElementById("show-goal").addEventListener("click", handleClick)
-
-      function handleClick () {
-      alert('steps placeholder')
-    }
-    })
     
-  }
+      
+    // $('#goals').html('')
+    $('#goals').append(goalList)
+    $('#hide-goals-button').show()
+    $('#index-goals-button').hide()
+    $('form').trigger('reset')
+      
+    document.getElementById("show-goal").addEventListener("click", handleClick)
+
+    function handleClick () {
+      console.log('steps placeholder')
+    }
+  })
+    
+}
   
   
 const indexGoalsFailure = function (response) {
