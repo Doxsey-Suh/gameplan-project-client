@@ -67,14 +67,23 @@ const indexGoalsSuccess = function (response) {
       <section class="container border list-group-item list-group-item-action " data-toggle='list' role="tab"  >
       <h1 id="show-goal"> <a href="#list-${goals.id}"> ${goals.name} </a> </h1>
       <p> description: ${goals.description} </p>
-      <p> id: ${goals._id} </p>
+      <p> id: ${goals.id} </p>
       
       </section>
       `)
-    
+    const stepCreate = (
+      `<div class='tab-pan fade' id= 'list-${goals.id}'  role= "tabpanel"> 
+      <form class="create-step-form">
+            <legend>new step</legend>
+            <input type="text" name="step[text]" placeholder="create step">
+            <input type="text" value= ${goals.id} name="goalId" placeholder="reference associated goal" required>
+            <button class= "btn btn-secondary"type="submit">create</button>
+          </form> `
+    )
       
     // $('#goals').html('')
     $('#goals').append(goalList)
+    $('#steps').append(stepCreate)
     $('#hide-goals-button').show()
     $('#index-goals-button').hide()
     $('form').trigger('reset')

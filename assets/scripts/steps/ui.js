@@ -4,7 +4,7 @@ import dateFormat from 'dateformat'
 const createStepSuccess = function (response) {
   $('#message').text('new step is ' + response.step.text + ' and its id is ' + response.step._id)
   $('form').trigger('reset')
-  $('#create-step-form').hide()
+  $('.create-step-form').hide()
   console.log(response.step.text)
 }
 

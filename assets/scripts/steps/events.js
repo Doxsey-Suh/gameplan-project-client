@@ -7,7 +7,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 
 const onShowCreateStepForm = function (event) {
   event.preventDefault()
-  $('#create-step-form').show()
+  $('.create-step-form').show()
   $('#delete-step-form').hide()
   $('#show-step-form').hide()
   $('#update-step-form').hide()
@@ -16,7 +16,7 @@ const onShowCreateStepForm = function (event) {
 const onShowDeleteStepForm = function (event) {
   event.preventDefault()
   $('#delete-step-form').show()
-  $('#create-step-form').hide()
+  $('.create-step-form').hide()
   $('#show-step-form').hide()
   $('#update-step-form').hide()
 }
@@ -25,7 +25,7 @@ const onShowShowStepForm = function (event) {
   event.preventDefault()
   $('#show-step-form').show()
   $('#delete-step-form').hide()
-  $('#create-step-form').hide()
+  $('.create-step-form').hide()
   $('#update-step-form').hide()
 }
 
@@ -34,7 +34,7 @@ const onShowUpdateStepForm = function (event) {
   $('#update-step-form').show()
   $('#show-step-form').hide()
   $('#delete-step-form').hide()
-  $('#create-step-form').hide()
+  $('.create-step-form').hide()
 }
 
 const onCreateStep = function (event) {
