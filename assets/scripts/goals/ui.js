@@ -48,7 +48,7 @@ const showGoalSuccess = function (response) {
 }
   
 const indexGoalsSuccess = function (response) {
-  console.log(response.goals.length)
+  console.log(response.goals)
   $('#goals').show()
   // $('#goals').html('')
   if (response.goals.length === 0) {
@@ -88,11 +88,11 @@ const indexGoalsSuccess = function (response) {
     $('#index-goals-button').hide()
     $('form').trigger('reset')
       
-    document.getElementById("show-goal").addEventListener("click", handleClick)
+    // document.getElementById("show-goal").addEventListener("click", handleClick)
 
-    function handleClick () {
-      console.log('steps placeholder')
-    }
+    // function handleClick () {
+    //   console.log('steps placeholder')
+    // }
   })
     
 }
