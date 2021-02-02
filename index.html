@@ -13,6 +13,24 @@
     </head>
 
     <body class= "container">
+      <!-- <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">hey</div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">.dude</div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">.what</div>
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+          </div>
+        </div>
+      </div> -->
       
       <h1 id="banner">gameplan</h1>
       <!-- <button id="test-button" onclick= "console.log('hello')"> hey </button> -->
@@ -77,19 +95,21 @@
         <!---GOAL BUTTONS END-->
 
         <!---STEP BUTTONS START-->
-                  <div id="buttons">
-                  <button class="btn btn-secondary mb-1" id="create-step-button">create a step</button>
-                  <button class="btn btn-secondary mb-1" id="show-step-button">search step by id</button>
-                  <button class="btn btn-secondary mb-1" id="update-step-button">update a step</button>
-                  <button class="btn btn-secondary mb-1" id="delete-step-button">delete a step</button>
-                  <button class="btn btn-secondary mb-1" id="index-steps-button">show all steps</button>
-                  <button class="btn btn-secondary mb-1" id="hide-steps-button">hide step(s)</button>
-                  </div>
+        <!-- <div id="buttons"> -->
+          <button class="btn btn-secondary mb-1" id="create-step-button">create a step</button>
+          <button class="btn btn-secondary mb-1" id="show-step-button">search step by id</button>
+          <button class="btn btn-secondary mb-1" id="update-step-button">update a step</button>
+          <button class="btn btn-secondary mb-1" id="delete-step-button">delete a step</button>
+          <button class="btn btn-secondary mb-1" id="index-steps-button">show all steps</button>
+          <button class="btn btn-secondary mb-1" id="hide-steps-button">hide step(s)</button>
+        <!-- </div> -->
         <!--STEP BUTTONS END-->
-      
+      </div>
       <!-- GOAL STUFF START-->
       <div class='row' id="goals-comments">
         <div class="col-md-5" id="goal-stuff">
+          <div class="list-group" id="goals list-tab" role="tablist">
+          </div>
           <!--NEW GOAL-->
           <form id="create-goal-form">
             <legend>new goal</legend>
@@ -97,8 +117,6 @@
             <input type="text" name="goal[description]" placeholder="add goal description">
             <button type="submit" class="btn btn-primary ">create</button>
           </form>
-          
-          
           <!-- SHOW GOAL -->
           <form id="show-goal-form">
             <legend>search a goal</legend>
@@ -121,16 +139,14 @@
             <input type="text" name="goal[id]" placeholder="goal id here">
             <button class= "btn btn-secondary" type="submit">delete</button>
           </form>
-
-          <section class="list-group" id="goals">
-          </section>
-
         </div>
        <!-- GOAL STUFF END-->
 
 
         <!--STEP STUFF START-->
         <div class="col-md-7" id="step-stuff">
+          <section class="list-group tab-content" id="steps nav-tabContent">
+          </section>
           <!--NEW STEP-->
           <form class="create-step-form">
             <legend>new step</legend>
@@ -161,8 +177,7 @@
             <button class= "btn btn-secondary" type="submit">delete</button>
           </form>
           
-          <section class="list-group" id="steps">
-          </section>
+
 
         </div>
       </div>

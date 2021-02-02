@@ -1,7 +1,7 @@
 'use strict'
 import dateFormat from 'dateformat'
 import { apiUrl } from '../config'
-
+const goalsEvents = require ('./events')
 
 
 const testButtonSuccess = function (response) {
@@ -50,6 +50,8 @@ const showGoalSuccess = function (response) {
 const indexGoalsSuccess = function (response) {
   console.log(response.goals)
   $('#goals').show()
+  $('#goal-stuff').show()
+  $('#step-stuff').show()
   // $('#goals').html('')
   if (response.goals.length === 0) {
     $('#goals').text('goals list is empty')
@@ -61,31 +63,33 @@ const indexGoalsSuccess = function (response) {
   // <button id="test-button" type="submit"> hey </button> 
   //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
   response.goals.forEach(goals => {
-      
     const goalList = (`
       
-      <section class="container border list-group-item list-group-item-action " data-toggle='list' role="tab"  >
-      <h1 id="show-goal"> <a href="#list-${goals.id}"> ${goals.name} </a> </h1>
-      <p> description: ${goals.description} </p>
+      <section class="container border list-group-item list-group-item-action active" id="list-goal-list" data-toggle='list' role="tab"  >
+      <h1 id="show-goal"> <a href="#list-${goals._id}"> ${goals.name} </a> </h1>
+     
       <p> id: ${goals._id} </p>
       
       </section>
       `)
     const stepCreate = (
    
-      `<form class="create-step-form">
+      `<div class="tab-pane fade show active" id="list-${goals._id}" role="tabpanel" aria-labelledby="list-step-list">
+         <form class="create-step-form">
             <legend>new step</legend>
             <input type="text" name="step[text]" placeholder="create step">
-            <input type="hidden" value= ${goals.id} name="goalId" placeholder="reference associated goal" required>
+            <input type="hidden" value= ${goals._id} name="goalId" placeholder="reference associated goal" required>
             <button class= "btn btn-secondary"type="submit">create</button>
-          </form> `
+          </form>
+      </div> `
     )
       
     // $('#goals').html('')
+    $('.create-step-form').on('submit', goalsEvents.onCreateGoal)
     $('#goals').append(goalList)
-    $('#goals').append(stepCreate)
-    $('#hide-goals-button').show()
-    $('#index-goals-button').hide()
+    $('#steps').append(stepCreate)
+    // $('#hide-goals-button').show()
+    // $('#index-goals-button').hide()
     $('form').trigger('reset')
       
     // document.getElementById("show-goal").addEventListener("click", handleClick)
