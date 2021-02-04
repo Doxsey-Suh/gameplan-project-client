@@ -3,7 +3,6 @@ import dateFormat from 'dateformat'
 import { apiUrl } from '../config'
 const goalsEvents = require ('./events')
 
-
 const testButtonSuccess = function (response) {
   console.log('test button from ui')
   $('#test-button').on("submit", console.log('test button clicked'))
@@ -24,13 +23,12 @@ const createGoalFailure = function (response) {
   $('form').trigger('reset')
 }
 
-
 const showGoalSuccess = function (response) {
   $('#goals').html('')
   $('form').trigger('reset')
   console.log(response)
   console.log(response.goal._id)
-  
+
   //   const deleteGoal = function () {
   //   console.log('delete button clicked')
   // }
@@ -43,10 +41,10 @@ const showGoalSuccess = function (response) {
     <button onClick="{console.log('help')}">delete</button>
     </section>
     `)
-    
+
   $('#goals').append(goalShow)
 }
-  
+
 const indexGoalsSuccess = function (response) {
   console.log("indexgoalsucess is firing")
   console.log(response.goals)
@@ -61,10 +59,13 @@ const indexGoalsSuccess = function (response) {
     $('#index-goals-button').hide()
     // $('form').trigger('reset')
   }
-    
-  // <button id="test-button" type="submit"> hey </button> 
+
+  // <button id="test-button" type="submit"> hey </button>
   //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
-  response.goals.forEach(goal => {
+  // response.goals.forEach(goal => 
+    for (let i = 0; i < response.goals.length; i++)
+    {
+    const goal = response.goals[i]
     const goalList = (`
       
       <a class="container border list-group-item list-group-item-action " id="list-goal-list" data-toggle='list' role="tab" href="#list-${goal._id}" >
@@ -75,7 +76,7 @@ const indexGoalsSuccess = function (response) {
       </a>
       `)
     const stepCreate = (
-   
+
       `<div class="tab-pane fade " id="list-${goal._id}" role="tabpanel" aria-labelledby="list-step-list">
          <form class=" create-step-form">
             <legend>new step</legend>
@@ -85,37 +86,40 @@ const indexGoalsSuccess = function (response) {
           </form>
       </div> `
     )
-      
+
     // $('#goals').html('')
     $('.create-step-form').on('submit', goalsEvents.onCreateGoal)
     $('#goals').append(goalList)
     $('#steps').append(stepCreate)
+    
+
     // $('#hide-goals-button').show()
     // $('#index-goals-button').hide()
     $('form').trigger('reset')
-    response.goals.step.forEach(step => {
+    for (let i = 0; i < goal.step.length; i++) {
+      const step = goal.step[i]
       const stepList = (`
         
-        <a class="container border list-group-item list-group-item-action " id="list-set-list" data-toggle='list' role="tab" href="#list-${goal._id}" >
-        <h1 id="show-set">  ${set.name}  </h1>
+      <li class = 'list-group-item'>
+
+        <h1 id="show-set">  ${step.text}  </h1>
        
-        <p> id: ${set._id} </p>
+        <p> id: ${step._id} </p>
         
-        </a>
+      </li>
       `)
-    }  
-      
+      $(stepCreate).prepend(stepList)
+      // $('#steps').append(stepList)
+    }
 
     // document.getElementById("show-goal").addEventListener("click", handleClick)
 
     // function handleClick () {
     //   console.log('steps placeholder')
     // }
-  })
-    
+  }
 }
-  
-  
+
 const indexGoalsFailure = function (response) {
   $('#message').text('unable to index goals')
   $('form').trigger('reset')
