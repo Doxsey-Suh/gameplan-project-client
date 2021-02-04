@@ -84,6 +84,9 @@ const indexGoalsSuccess = function (response) {
             <input type="hidden" value= ${goal._id} name="goalId" placeholder="reference associated goal" required>
             <button class= "btn btn-secondary"type="submit">create</button>
           </form>
+        <div> 
+          <p>${goal.step[1].text}</p>
+        </div>
       </div> `
     )
 
