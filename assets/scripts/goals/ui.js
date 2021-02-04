@@ -64,23 +64,23 @@ const indexGoalsSuccess = function (response) {
     
   // <button id="test-button" type="submit"> hey </button> 
   //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
-  response.goals.forEach(goals => {
+  response.goals.forEach(goal => {
     const goalList = (`
       
-      <a class="container border list-group-item list-group-item-action " id="list-goal-list" data-toggle='list' role="tab" href="#list-${goals._id}" >
-      <h1 id="show-goal">  ${goals.name}  </h1>
+      <a class="container border list-group-item list-group-item-action " id="list-goal-list" data-toggle='list' role="tab" href="#list-${goal._id}" >
+      <h1 id="show-goal">  ${goal.name}  </h1>
      
-      <p> id: ${goals._id} </p>
+      <p> id: ${goal._id} </p>
       
       </a>
       `)
     const stepCreate = (
    
-      `<div class="tab-pane fade " id="list-${goals._id}" role="tabpanel" aria-labelledby="list-step-list">
+      `<div class="tab-pane fade " id="list-${goal._id}" role="tabpanel" aria-labelledby="list-step-list">
          <form class=" create-step-form">
             <legend>new step</legend>
             <input type="text" name="step[text]" placeholder="create step">
-            <input type="hidden" value= ${goals._id} name="goalId" placeholder="reference associated goal" required>
+            <input type="hidden" value= ${goal._id} name="goalId" placeholder="reference associated goal" required>
             <button class= "btn btn-secondary"type="submit">create</button>
           </form>
       </div> `
@@ -93,7 +93,19 @@ const indexGoalsSuccess = function (response) {
     // $('#hide-goals-button').show()
     // $('#index-goals-button').hide()
     $('form').trigger('reset')
+    response.goals.step.forEach(step => {
+      const stepList = (`
+        
+        <a class="container border list-group-item list-group-item-action " id="list-set-list" data-toggle='list' role="tab" href="#list-${goal._id}" >
+        <h1 id="show-set">  ${set.name}  </h1>
+       
+        <p> id: ${set._id} </p>
+        
+        </a>
+      `)
+    }  
       
+
     // document.getElementById("show-goal").addEventListener("click", handleClick)
 
     // function handleClick () {
