@@ -48,7 +48,9 @@ const showGoalSuccess = function (response) {
 }
   
 const indexGoalsSuccess = function (response) {
+  console.log("indexgoalsucess is firing")
   console.log(response.goals)
+  $('#goals').append('hello')
   $('#goals').show()
   $('#goal-stuff').show()
   $('#step-stuff').show()
@@ -65,17 +67,17 @@ const indexGoalsSuccess = function (response) {
   response.goals.forEach(goals => {
     const goalList = (`
       
-      <section class="container border list-group-item list-group-item-action active" id="list-goal-list" data-toggle='list' role="tab"  >
-      <h1 id="show-goal"> <a href="#list-${goals._id}"> ${goals.name} </a> </h1>
+      <a class="container border list-group-item list-group-item-action " id="list-goal-list" data-toggle='list' role="tab" href="#list-${goals._id}" >
+      <h1 id="show-goal">  ${goals.name}  </h1>
      
       <p> id: ${goals._id} </p>
       
-      </section>
+      </a>
       `)
     const stepCreate = (
    
-      `<div class="tab-pane fade show active" id="list-${goals._id}" role="tabpanel" aria-labelledby="list-step-list">
-         <form class="create-step-form">
+      `<div class="tab-pane fade " id="list-${goals._id}" role="tabpanel" aria-labelledby="list-step-list">
+         <form class=" create-step-form">
             <legend>new step</legend>
             <input type="text" name="step[text]" placeholder="create step">
             <input type="hidden" value= ${goals._id} name="goalId" placeholder="reference associated goal" required>
