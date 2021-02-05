@@ -60,13 +60,16 @@ const indexGoalsSuccess = function (response) {
 
       const list = document.createElement('a')
       // define the goal list item as a collapsable <a> tag and the collapse out class that contains the hidden info
-        const goalList= (`
+          const goalList= (`
         <section class="container" id="goal-border">
         <p href="#" data-target="#show-steps" id="show-goal" data-toggle="collapse">
          ${response.goals[i].name}
         </p>
         </section>
        <div class="collapse out" id="show-steps">
+       <p>
+        ${response.goals[i].description}
+       </p>
         </div>
       `)
       $(list).addClass('list-group-item list-group-item-action')
