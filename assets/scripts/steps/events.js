@@ -39,6 +39,7 @@ const onShowUpdateStepForm = function (event) {
 
 const onCreateStep = function (event) {
   event.preventDefault()
+  // console.log('create-step-form is firing')
   const form = event.target
   const data = getFormFields(form)
   console.log(data)

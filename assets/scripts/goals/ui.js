@@ -2,6 +2,7 @@
 import dateFormat from 'dateformat'
 import { apiUrl } from '../config'
 const goalsEvents = require ('./events')
+const stepsEvents = require('./../steps/events')
 
 const testButtonSuccess = function (response) {
   console.log('test button from ui')
@@ -65,11 +66,18 @@ const indexGoalsSuccess = function (response) {
   // response.goals.forEach(goal =>
   for (let i = 0; i < response.goals.length; i++) {
     const goal = response.goals[i]
+    const goalDescription = () => {
+      if (!goal.description){
+        return " no description"
+      }
+      return goal.description
+
+    }
     const goalList = (`
       
       <a class="container border list-group-item list-group-item-action " id="list-goal-list" data-toggle='list' role="tab" href="#list-${goal._id}" >
       <h1 id="show-goal">  ${goal.name}  </h1>
-     <p> ${goal.descripton} </p>
+     <p> ${goalDescription()} </p>
       <p> id: ${goal._id} </p>
       
       </a>
@@ -87,6 +95,7 @@ const indexGoalsSuccess = function (response) {
           </form>
       </div> `
     )
+    $('.create-step-form').on('submit', stepsEvents.onCreateStep)
     $('#steps').append(stepCreate)
     if (goal.step.length === 0) {
       $(`#list-${goal._id}`).append('<p>stepList empty</p>')
