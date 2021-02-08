@@ -2,10 +2,12 @@
 import dateFormat from 'dateformat'
 
 const createStepSuccess = function (response) {
-  $('#message').text('new step is ' + response.step.text + ' and its id is ' + response.step._id)
+  console.log(response)
+  const index = response.goal.step.length
+  $('#message').text('"You just added new step ' + response.goal.step[index - 1].text + '"')
   $('form').trigger('reset')
-  $('.create-step-form').hide()
-  console.log(response.step.text)
+  // $('.create-step-form').hide()
+  // console.log(response.step.text)
 }
 
 const createStepFailure = function (response) {

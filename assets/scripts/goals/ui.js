@@ -95,7 +95,7 @@ const indexGoalsSuccess = function (response) {
           </form>
       </div> `
     )
-   
+
     $('#steps').append(stepCreate)
     if (goal.step.length === 0) {
       $(`#list-${goal._id}`).append('<p>stepList empty</p>')
@@ -104,13 +104,7 @@ const indexGoalsSuccess = function (response) {
       const stepList = (`<p> ${goal.step[j].text}</p>`)
       $(`#list-${goal._id}`).append(stepList)
     }
-
-    // $('.create-step-form').on('submit', goalsEvents.onCreateGoal)
-    
-    // $('#hide-goals-button').show()
-    // $('#index-goals-button').hide()
     $('form').trigger('reset')
-  
   }
   $('.create-step-form').on('submit', stepsEvents.onCreateStep)
 }
