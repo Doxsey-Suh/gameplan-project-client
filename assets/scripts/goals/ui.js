@@ -95,7 +95,7 @@ const indexGoalsSuccess = function (response) {
           </form>
       </div> `
     )
-    $('.create-step-form').on('submit', stepsEvents.onCreateStep)
+   
     $('#steps').append(stepCreate)
     if (goal.step.length === 0) {
       $(`#list-${goal._id}`).append('<p>stepList empty</p>')
@@ -112,6 +112,7 @@ const indexGoalsSuccess = function (response) {
     $('form').trigger('reset')
   
   }
+  $('.create-step-form').on('submit', stepsEvents.onCreateStep)
 }
 
 const indexGoalsFailure = function (response) {
