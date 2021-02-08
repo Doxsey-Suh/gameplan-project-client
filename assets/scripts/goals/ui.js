@@ -48,7 +48,7 @@ const showGoalSuccess = function (response) {
 const indexGoalsSuccess = function (response) {
   console.log("indexgoalsucess is firing")
   console.log(response.goals)
-  $('#goals').append('hello')
+  // $('#goals').append('hello')
   $('#goals').show()
   $('#goal-stuff').show()
   $('#step-stuff').show()
@@ -62,9 +62,8 @@ const indexGoalsSuccess = function (response) {
 
   // <button id="test-button" type="submit"> hey </button>
   //  const handleclick =() => console.log('hello')  onclick= ${handleclick}
-  // response.goals.forEach(goal => 
-    for (let i = 0; i < response.goals.length; i++)
-    {
+  // response.goals.forEach(goal =>
+  for (let i = 0; i < response.goals.length; i++) {
     const goal = response.goals[i]
     const goalList = (`
       
@@ -81,44 +80,45 @@ const indexGoalsSuccess = function (response) {
          <form class=" create-step-form">
             <legend>new step</legend>
             <input type="text" name="step[text]" placeholder="create step">
-            <input type="hidden" value= ${goal._id} name="goalId" placeholder="reference associated goal" required>
+            <input type="hidden" value=${goal._id} name="goalId" placeholder="reference associated goal" required>
             <button class= "btn btn-secondary"type="submit">create</button>
           </form>
-        <div> 
-          <p>${goal.step[1].text}</p>
-        </div>
       </div> `
+    )
+    const index = () => {
+      if (goal.step.length === 0) {
+        return "step is empty"
+      }
+      return goal.step[0].text
+    }
+
+    const stepIndex = (
+      `<div> ${index()}
+      </div>`
     )
 
     // $('#goals').html('')
     $('.create-step-form').on('submit', goalsEvents.onCreateGoal)
     $('#goals').append(goalList)
     $('#steps').append(stepCreate)
-    
+    $('#steps').append(stepIndex)
 
     // $('#hide-goals-button').show()
     // $('#index-goals-button').hide()
     $('form').trigger('reset')
-    for (let i = 0; i < goal.step.length; i++) {
-      const step = goal.step[i]
-      const stepList = (`
-        
-      <li class = 'list-group-item'>
+    // if (goal.step.length === 0) {
+    //   $('#steps').text('step list is empty')
+    // }
+    // for (let j = 0; j < goal.step.length; j++) {
+    //   const step = goal.step[j]
+    //   const stepList = (`
+    //   <div>
 
-        <h1 id="show-set">  ${step.text}  </h1>
-       
-        <p> id: ${step._id} </p>
-        
-      </li>
-      `)
-      $(stepCreate).prepend(stepList)
-      // $('#steps').append(stepList)
-    }
-
-    // document.getElementById("show-goal").addEventListener("click", handleClick)
-
-    // function handleClick () {
-    //   console.log('steps placeholder')
+    //     <h1 id="show-set">  ${step.text}  </h1>
+    //     <p> id: ${step._id} </p>
+    //   </div>
+    //   `)
+    //   $('#goal._id').append(stepList)
     // }
   }
 }
