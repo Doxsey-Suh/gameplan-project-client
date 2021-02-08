@@ -12,7 +12,9 @@ const stepsEvents = require('./steps/events')
 
 $(() => {
   // your JS code goes here
+
   $('#test-button').on('click', goalsEvents.testButton)
+  // $('#test-button').on('submit', console.log('test button is firing '))
 
   $('#message').text('sign in to sort out your life')
   $('#sign-up-form').hide()
@@ -47,6 +49,7 @@ $(() => {
   //steps
   // $('#create-step-form').hide()
   $('.create-step-form').on('submit', stepsEvents.onCreateStep)
+  
   $('#hide-steps-button').hide()
   $('#index-steps-button').on('click', stepsEvents.onIndexSteps)
   $('#index-steps-button').hide()
